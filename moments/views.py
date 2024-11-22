@@ -34,10 +34,10 @@ def submit_post(request):
     if text:
         status = Status(user=user, text=text)
         status.save()
-    if ENVIRONMENT == 'dev':
-        return redirect(f'/status')
-    elif ENVIRONMENT == 'stag':
-        return redirect(f'/stag--{APP_CODE}/status')
+        if ENVIRONMENT == 'dev':
+            return redirect(f'/status')
+        elif ENVIRONMENT == 'stag':
+            return redirect(f'/stag--{APP_CODE}/status')
     return render(request, 'my_post.html')
 
 
