@@ -10,7 +10,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 """
-from config import RUN_VER
+from config import APP_CODE, RUN_VER
 from config.default import FRONTEND_BACKEND_SEPARATION
 
 if RUN_VER == "open":
@@ -47,3 +47,5 @@ if FRONTEND_BACKEND_SEPARATION:
     MIDDLEWARE = ("corsheaders.middleware.CorsMiddleware",) + MIDDLEWARE
     CORS_ORIGIN_ALLOW_ALL = True
     CORS_ALLOW_CREDENTIALS = True
+
+BK_STATIC_URL = "/stag--" + APP_CODE
