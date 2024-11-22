@@ -49,9 +49,9 @@ DEBUG = True
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": APP_CODE,  # noqa
+        "NAME": APP_CODE.replace('-', '_'),  # noqa，mysql 数据库名不能有 '-'
         "USER": "root",
-        "PASSWORD": "",
+        "PASSWORD": "root",
         "HOST": "localhost",
         "PORT": "3306",
     },

@@ -37,7 +37,7 @@ INSTALLED_APPS += (
     "bk_framework_app",
     "rest_framework",
     "drf_yasg",
-    
+    "moments"
 )
 
 # 这里是默认的中间件，大部分情况下，不需要改动
@@ -105,7 +105,7 @@ LOGGING = get_logging_config_dict(locals())
 
 # 初始化管理员列表，列表中的人员将拥有预发布环境和正式环境的管理员权限
 # 注意：请在首次提测和上线前修改，之后的修改将不会生效
-INIT_SUPERUSER = []
+INIT_SUPERUSER = ['lsy']   # lsy
 
 
 # 使用mako模板时，默认打开的过滤器：h(过滤html)
