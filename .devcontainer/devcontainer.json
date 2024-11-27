@@ -12,8 +12,7 @@
     },
     "workspaceFolder": "/app",
     "mounts": [
-        "source=${localWorkspaceFolder},target=/app,type=bind",
-        "source=${HOME}/.ssh,target=/root/.ssh,type=ro"
+        "source=${localWorkspaceFolder},target=/app,type=bind"
     ],
     "remoteUser": "root"
 }

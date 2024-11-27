@@ -1,6 +1,30 @@
-# 分布式系统实验作业
+# hw1
 
-## 开发环境
+分布式系统实验作业
+
+## 使用 docker + VScode
+
+开发环境镜像在本仓库的 ghcr.io 注册表中，确保您的 docker 登录到 ghcr.io
+
+克隆本仓库到您的电脑中，确保您的 VSCode 安装了 Dev-Containers 插件
+
+`docker-compose.yml` 中，注意如下部分：
+
+``` yaml yaml
+services:
+  app:
+    # ......
+    volumes:
+      - ${HOME}/.ssh:/root/.ssh
+```
+
+如果您是 Windows，`${HOME}` 将会是反斜杠路径会产生问题，请替换为正斜杠路径。这部分配置目的是使用您机器自己的 ssh 密钥来在开发过程中进行 `git pull/push` 操作
+
+VSCode 打开本仓库，`ctrl + shift + p` (`command + shift + p` for mac) 输入 Reopen with container 使用开发容器打开
+
+（请注意调试的时候似乎网页转发还有问题，如果您有想法发现了问题欢迎帮忙解决~）
+
+## 自己搭建开发环境
 
 使用 `conda`（或 `mamba`）创建环境：
 

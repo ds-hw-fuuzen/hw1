@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     image: "ghcr.io/ds-hw-fuuzen/hw1:master"
-    # image: "ghcr.io/ds-hw-fuuzen/ds-hw-1-test:0.0.4"
+    # image: "ghcr.io/ds-hw-fuuzen/ds-hw-1-test:0.0.5"
     ports:
       - "8000:8000"
     environment:
@@ -20,6 +20,8 @@ services:
       - DEV_DB_NAME=hw1
     depends_on:
       - db
+    volumes:
+      - ${HOME}/.ssh:/root/.ssh
 
   db:
     image: mysql:latest

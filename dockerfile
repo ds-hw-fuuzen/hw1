@@ -27,4 +27,6 @@ RUN apt-get update && \
 
 EXPOSE 8000
 
-CMD ["tail", "-f", "/dev/null"]
+COPY start.sh .
+
+ENTRYPOINT ["/bin/bash", "/app/start.sh"]
