@@ -1,5 +1,7 @@
 # hw1
 
+[![Docker](https://github.com/ds-hw-fuuzen/hw1/actions/workflows/docker-publish.yml/badge.svg?branch=master)](https://github.com/ds-hw-fuuzen/hw1/actions/workflows/docker-publish.yml)
+
 分布式系统实验作业
 
 ## 使用 docker + VScode
