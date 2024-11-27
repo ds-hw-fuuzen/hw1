@@ -14,14 +14,17 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-FROM python:3.10.5-alpine
+FROM python:3.10.5-slim
 
 COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
 
 WORKDIR /app
 
-RUN apk add --no-cache fish
+RUN apt-get update && \
+    apt-get install -y fish git && \
+    rm -rf /var/lib/apt/lists/* && \
+    sed -i 's|/bin/bash|/usr/bin/fish|g' /etc/passwd
 
-SHELL ["/usr/bin/fish", "-c"]
+EXPOSE 8000
 
-EXPOSE 2222
+CMD ["tail", "-f", "/dev/null"]

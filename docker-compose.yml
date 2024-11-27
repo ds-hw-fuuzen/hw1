@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    image: "ghcr.io/ds-hw-fuuzen/hw1:master"
+    # image: "ghcr.io/ds-hw-fuuzen/ds-hw-1-test:0.0.4"
+    ports:
+      - "8000:8000"
+    environment:
+      - BKPAAS_APP_ID=hw1
+      - BKPAAS_APP_SECRET=OQBH7af1WJV8mdwUjMT8l2qvuOT9eFJfN9DN
+      - BKPAAS_MAJOR_VERSION=3
+      - BK_PAAS2_URL=https://ce.bktencent.com
+      - BK_COMPONENT_API_URL=https://bkapi.ce.bktencent.com
+      - BKPAAS_LOGIN_URL=https://ce.bktencent.com/login/
+      - DEV_DB_HOST=db
+      - DEV_DB_PORT=3306
+      - DEV_DB_USER=root
+      - DEV_DB_PASSWORD=root
+      - DEV_DB_NAME=hw1
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hw1
+      # MYSQL_USER: 
+      # MYSQL_PASSWORD: 
+    # volumes:
+    #   - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+# volumes:
+#   db_data: {}

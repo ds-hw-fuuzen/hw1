@@ -1,0 +1,19 @@
+{
+    "name": "hw1",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    },
+    "workspaceFolder": "/app",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app,type=bind",
+        "source=${HOME}/.ssh,target=/root/.ssh,type=ro"
+    ],
+    "remoteUser": "root"
+}
