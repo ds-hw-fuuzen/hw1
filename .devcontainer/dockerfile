@@ -2,6 +2,8 @@ FROM python:3.10.5 AS builder
 
 COPY requirements.txt .
 
+COPY requirements_dev.txt .
+
 RUN apt-get update && apt-get install -y \
     build-essential \
     python3-dev \
@@ -24,8 +26,6 @@ RUN apt-get update && \
     apt-get install -y fish git && \
     rm -rf /var/lib/apt/lists/* && \
     sed -i 's|/bin/bash|/usr/bin/fish|g' /etc/passwd
-
-EXPOSE 8000
 
 COPY start.sh .
 

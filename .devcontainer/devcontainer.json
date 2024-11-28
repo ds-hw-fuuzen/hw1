@@ -1,6 +1,6 @@
 {
     "name": "hw1",
-    "dockerComposeFile": "../docker-compose.yml",
+    "dockerComposeFile": "docker-compose.yml",
     "service": "app",
     "customizations": {
         "vscode": {
@@ -10,9 +10,9 @@
             ]
         }
     },
-    "workspaceFolder": "/app",
+    "workspaceFolder": "/app/dev",
     "mounts": [
-        "source=${localWorkspaceFolder},target=/app,type=bind"
+        "source=${localWorkspaceFolder},target=/app/dev,type=bind"
     ],
     "remoteUser": "root"
 }
